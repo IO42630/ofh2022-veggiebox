@@ -18,13 +18,15 @@ data = json.load(f)
 # see https://plotly.com/python/px-arguments/ for more options
 
 fig = go.Figure()
+yArr = []
 
-
-for kw in range(1,50):
+for kw in range(1,51):
     hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
+    yVal = data.get(str(kw)).get("xl");
+    yArr.append(yVal)
     fig.add_trace(go.Bar(
         x=veggies,
-        y=data.get(str(kw)).get("xl"),
+        y=yVal,
         name="kw" + str(kw) + "xl",
         marker_color= hexadecimal
     ))
