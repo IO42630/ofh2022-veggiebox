@@ -6,6 +6,7 @@
 
 
 ### Ansichten
+* 40 graph lines (y) for each month (x) (almost ✔️️)
 
 
 ### Process Steps
