@@ -1,6 +1,6 @@
-for x in range(7, 40):
+for x in range(1, 51):
 
-    f = open("./data/xlsx-rows/xl/kw" + str(x) + ".txt","r")
+    f = open("./data/xlsx-rows/xl/kw" + str(x) + ".txt", "r")
     lines = f.readlines()
 
     result = ""
