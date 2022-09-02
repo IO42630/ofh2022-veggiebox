@@ -1,9 +1,11 @@
 # Run this app with `python app.py` and
 # visit http://127.0.0.1:8050/ in your web browser.
 import json
+import random
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from dash import Dash, html, dcc
 
 app = Dash(__name__)
@@ -15,20 +17,25 @@ data = json.load(f)
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
 
-kw1xl = data.get("1").get("xl")
-df = pd.DataFrame({
-    "veggies": veggies,
-    "kw1xl": kw1xl
-})
+fig = go.Figure()
 
-fig = px.bar(df, x="veggies", y="kw1xl")
+
+for kw in range(1,50):
+    hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
+    fig.add_trace(go.Bar(
+        x=veggies,
+        y=data.get(str(kw)).get("xl"),
+        name="kw" + str(kw) + "xl",
+        marker_color= hexadecimal
+    ))
+
+
+
+
+fig.update_layout(barmode='group')
+fig.update_yaxes()
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Veggie!'),
-
-    html.Div(children='''
-        Dash: A web application framework for your data.
-    '''),
 
     dcc.Graph(
         id='example-graph',
