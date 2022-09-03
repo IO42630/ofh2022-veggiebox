@@ -7,9 +7,10 @@ from dash import Dash
 app = Dash(__name__)
 
 veggies = json.load(open('./data/veggies.json')).get("veggies")
+ernte = json.load(open('./data/veggies.json')).get("ernte")
 data = json.load(open('./data/data.json'))
 
-vegRange = range(1, 39)      # do not count Verpackung
+vegRange = range(2, 3)      # do not count Verpackung
 kwRange = range(1, 51)
 
 fig = go.Figure()
@@ -19,7 +20,7 @@ for kw in kwRange:
     xArr.append("kw" + str(kw))
 
 yArr = []
-for veg in vegRange:
+for veg in range(0, 100):
     yArr.append([])
 
 for kw in kwRange:
@@ -37,6 +38,8 @@ for kw in kwRange:
 fig = go.Figure()
 
 
+
+
 for veg in vegRange:
     hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
     fig.add_trace(go.Scatter(
@@ -46,14 +49,32 @@ for veg in vegRange:
         line=dict(color=hexadecimal)
     ))
 
-# for veg in range(1,39):
-#     hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
-#     fig.add_trace(go.Scatter(
-#         x=xArr,
-#         y=yArr[veg],
-#         name=veggies[veg],
-#         mode="markers",
-#         marker=dict(color=hexadecimal)
-#     ))
+    ernteArrMt = ernte[veg-1]
+    ernteArrKw = []
+    for er in ernteArrMt:
+        for x in range(0, 4):
+            if er != 0:
+                ernteArrKw.append(er)
+            else:
+                ernteArrKw.append(None)
+
+
+    ernteArrKw.append(None)
+    ernteArrKw.append(None)
+
+
+
+
+    hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
+
+    fig.add_trace(go.Scatter(
+        x=xArr,
+        y=ernteArrKw,
+        name=veggies[veg-1] + "ernte",
+        line=dict(color=hexadecimal)
+    ))
+
+
+
 
 fig.show()
