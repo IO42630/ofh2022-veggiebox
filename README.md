@@ -6,7 +6,8 @@
 
 
 ### Ansichten
-* 40 graph lines (y) for each month (x) (almost ✔️️)
+* 40 graph lines (y) for each kw (x) ✔
+* local availability vs production for blumenkohl ✔
 
 
 ### Process Steps
