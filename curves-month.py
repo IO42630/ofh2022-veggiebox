@@ -10,41 +10,44 @@ from dash import Dash, html, dcc
 
 app = Dash(__name__)
 
-f = open('./data/data.json')
 veggies = json.load(open('./data/veggies.json')).get("veggies")
-data = json.load(f)
+data = json.load(open('./data/data.json'))
 
+vegRange = range(1,39) # do not count Verpackung
+kwRange = range(1, 51)
 
 fig = go.Figure()
 xArr = []
 
-for kw in range(1, 51):
-    xArr.append("kw" +str(kw))
+for kw in kwRange:
+    xArr.append("kw" + str(kw))
 
 
 yArr = []
-for veg in range(0, 40):
+for veg in vegRange:
     yArr.append([])
 
-for kw in range(1, 51):
-    for veg in range(1, 40):
+for kw in kwRange:
+    for veg in vegRange:
         kwArr = data.get(str(kw)).get("xl")
         if kwArr:
             val = kwArr[veg-1]
             if val == 0:
                 val = None
-            yArr[veg].append(val)
+        else:
+            val = None
+        yArr[veg-1].append(val)
 
 
 fig = go.Figure()
 
 
-for veg in range(1, 39):
+for veg in vegRange:
     hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
     fig.add_trace(go.Scatter(
         x=xArr,
-        y=yArr[veg],
-        name=veggies[veg],
+        y=yArr[veg-1],
+        name=veggies[veg-1],
         line=dict(color=hexadecimal)
     ))
 
