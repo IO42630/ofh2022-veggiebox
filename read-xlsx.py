@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import openpyxl
+import model.dataholder as dh
 
 
 print(os.getcwd())
@@ -12,8 +13,14 @@ data = pd.ExcelFile(fileName)
 print(data.sheet_names) #this returns the all the sheets in the excel file
 
 workbook = openpyxl.load_workbook(fileName)
-worksheet1= workbook.worksheets[0]
+worksheet1 = workbook.worksheets[0]
 
-for row in range(2, worksheet1.max_row + 1):
-    test = worksheet1['B' + str(row)].value
-    br = 0
+holder = dh.DataHolder("savefile.json")
+for row in range(1, worksheet1.max_row + 1):
+    holder.data[row] = {}
+    for col in range(1, worksheet1.max_column + 1):
+        holder.data[row][col] = worksheet1.cell(row, col).value
+
+holder.save()
+
+br = 0
