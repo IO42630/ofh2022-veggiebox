@@ -16,6 +16,12 @@
 3. execute text-transform.py
 4. copy from terminal to data.json
 
+### Deployment
+* `docker build -t ofh2022-veggiebox:0.1 .\ `
+* `docker tag ofh2022-veggiebox:0.1 io42630/ofh2022-veggiebox:0.1`
+* `docker push io42630/ofh2022-veggiebox:0.1`
+* 
+
 
 
 

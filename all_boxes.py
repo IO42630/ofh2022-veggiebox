@@ -3,8 +3,6 @@
 import json
 import random
 
-import pandas as pd
-import plotly.express as px
 import plotly.graph_objects as go
 from dash import Dash, html, dcc
 
@@ -44,6 +42,3 @@ app.layout = html.Div(children=[
         figure=fig
     )
 ])
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
