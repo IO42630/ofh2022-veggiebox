@@ -1,5 +1,6 @@
 import json
 import random
+import util.arrUtil as arrUtil
 
 import plotly.graph_objects as go
 from dash import Dash
@@ -39,30 +40,10 @@ for veg in vegRange:
     sums.append([])
 
 for veg in vegRange:
-    sums[veg-1] = sum(yArr[veg-1])
+    notNullArr = arrUtil.replace(yArr[veg-1], None, 0)
+    sums[veg-1] = sum(notNullArr)
 
 print(sums)
 
-fig = go.Figure()
 
 
-for veg in vegRange:
-    hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
-    fig.add_trace(go.Scatter(
-        x=xArr,
-        y=yArr[veg-1],
-        name=veggies[veg-1],
-        line=dict(color=hexadecimal)
-    ))
-
-# for veg in range(1,39):
-#     hexadecimal = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
-#     fig.add_trace(go.Scatter(
-#         x=xArr,
-#         y=yArr[veg],
-#         name=veggies[veg],
-#         mode="markers",
-#         marker=dict(color=hexadecimal)
-#     ))
-
-fig.show()

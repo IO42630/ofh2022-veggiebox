@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>20</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>100</y>
+      <w>480</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Wochenübersicht Marktvolumen
+
+- x : Gemüse
+- y : KW
+- z : Volumen
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>580</y>
+      <w>300</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Plan der Bestellung
+
+- x1 : Box (Typ)
+- x2 : KW
+- x3 : Gemüse
+- z  : Volumen
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>340</y>
+      <w>480</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Saisonkalender
+
+- x : Gemüse
+- y : Monat (KW)
+- z : Saison (ja/nein)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>580</y>
+      <w>300</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Plan der Bestellung
+
+- x1 : Box (Typ)
+- x2 : KW
+- z  : Anzahl (Boxen)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>280</y>
+      <w>480</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Objekt
+
+- z1 : Marktvolumen
+- z2 : Saison (ja/nein)
+- z3 : Jack / Box / Inhalt
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>100</y>
+      <w>480</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Raster
+
+- x : Gemüse
+- y : KW
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1260</x>
+      <y>100</y>
+      <w>480</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Raster
+
+- x : Jack
+- y : KW
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1260</x>
+      <y>280</y>
+      <w>480</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>halign=left
+Objekt
+
+- z1 : Anzahl
+- z2 : Box
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
